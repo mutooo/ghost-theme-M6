@@ -1,0 +1,58 @@
+{{!< default}}
+<header>
+<div class="logo"><a href="/">{{@blog.title}}</a></div>
+<div class="top">	
+  
+  <div class="menu">
+  	<ul>
+    	{{navigation}}
+    </ul>
+  </div> 
+  <div class="search_bar">
+        <button class="btn" type="button"><span class="ion-ios-search"></span></button>
+      <input type="text" class="search" placeholder="Search for...">
+  </div> 
+</div>
+</header>
+<div class="clear"></div>
+{{#post}}
+<div class="col-100">
+<article class="post-post">
+  {{#if image}}<div class="post-image" style="background-image: url({{image}})">
+	<div class="mask">
+	    <div class="post-meta col-80">
+                {{date published_at timeago="true"}}
+        </div>
+    <div class="clear"></div>
+  		<h1 class="title col-80">{{{title}}}</h1>
+	</div>
+  </div>
+  {{else}}
+  <div class="post-image" style="background-image: url({{asset "img/bg.jpg"}})">
+	<div class="mask">
+	    <div class="post-meta col-80">
+                {{date published_at timeago="true"}}
+        </div>
+    <div class="clear"></div>
+  		<h1 class="title col-80">{{{title}}}</h1>
+	</div>
+  </div>
+  {{/if}}
+  <div class="clear"></div>
+  <div class="fly"></div>
+  <div class="content">
+		{{content}}
+  </div>
+  <div class="clear"></div>  
+  <footer class="post-footer">
+        	<div class="tags">
+			{{tags separator=""}}
+            </div>
+  </footer>
+</article>
+  <div class="clear"></div>
+<div class="comments">
+	{{> comments}}
+</div>  
+</div>
+{{/post}}

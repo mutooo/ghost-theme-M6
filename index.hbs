@@ -1,0 +1,57 @@
+{{!< default}}
+<header>
+<div class="logo"><a href="/">{{@blog.title}}</a></div>
+<div class="top">	
+  
+  <div class="menu">
+  	<ul>
+    	{{navigation}}
+    </ul>
+  </div> 
+  <div class="search_bar">
+        <button class="btn" type="button"><span class="ion-ios-search"></span></button>
+      <input type="text" class="search" placeholder="Search for...">
+  </div> 
+</div>
+</header>
+<div class="clear"></div>
+<div class="main col-100">
+<div class="col-60">
+
+{{#foreach posts}}
+<div class="fly"></div>
+<div class="post-index">
+  <div class="auther">
+  	<img src="{{author.image}}" class="avatar">
+    <div class="meta">
+      <div class="name"><a href="{{author.bio}}">{{author}}</a></div>
+      <div class="time">{{date format='YYYY-MM-DD'}}</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="post-image {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"></div>
+  
+  <h1 class="title"><a href="{{url}}">{{{title}}}</a></h1>
+  <div class="centent">
+  {{excerpt characters="150"}}
+  </div>
+  <div class="more"><a href="{{url}}">Read more</a></div>
+</div>
+{{/foreach}}
+{{pagination}}
+</div>
+<div class="col-40">
+  <div class="sidebar">
+	<div class="tag-clouds">
+    	<div class="section-title"><span>FEATURED TAGS</span></div>
+    	<div class="tags">
+            {{tag_cloud limit="all"}}
+        </div>        
+    </div>
+    <div class="clear"></div>
+    <div class="section-title"><span>Recent Visitors</span></div>
+    <ul class="ds-recent-visitors"></ul>
+  </div>
+</div>
+</div>
+

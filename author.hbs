@@ -1,0 +1,68 @@
+{{!< default}}
+<header>
+<div class="logo"><a href="/">{{@blog.title}}</a></div>
+<div class="top">	
+  
+  <div class="menu">
+  	<ul>
+    	{{navigation}}
+    </ul>
+  </div> 
+  <div class="search_bar">
+        <button class="btn" type="button"><span class="ion-ios-search"></span></button>
+      <input type="text" class="search" placeholder="Search for...">
+  </div> 
+</div>
+</header>
+<div class="clear"></div>
+{{#author}}
+{{#if cover}}
+  <div class="author-image" style="background-image: url({{cover}})"></div>
+{{else}}
+  <div class="cover"></div>
+{{/if}}
+<div class="author-top col-100">
+  	<img src="{{image}}" class="avatar">
+<h3>{{name}}</h3>
+<div class="auther-description">{{bio}}</div>
+<div class="author-meta">
+<button class="meta1">
+<small class="meta-label">POSTS</small>
+23
+</button>
+<button class="meta2">
+<small class="meta-label">POSTS</small>
+15
+</button>
+</div>
+</div>
+<div class="section-title col-100" align="center">
+<span>latest stories</span>
+</div>
+{{/author}}
+<div class="main">
+<div class="col-100">
+{{#foreach posts}}
+<div class="post-index">
+  <div class="auther">
+  	<img src="{{author.image}}" class="avatar">
+    <div class="meta">
+      <div class="name"><a href="{{author.bio}}">{{author}}</a></div>
+      <div class="time">{{date format='YYYY-MM-DD'}}</div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="post-image {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"></div>
+  
+  <h1 class="title"><a href="{{url}}">{{{title}}}</a></h1>
+  <div class="centent">
+  {{excerpt characters="150"}}
+  </div>
+  <div class="more"><a href="{{url}}">Read more</a></div>
+</div>
+{{/foreach}}
+{{pagination}}
+</div>
+
+</div>
+

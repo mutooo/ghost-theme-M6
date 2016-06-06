@@ -1,0 +1,55 @@
+{{!< default}}
+<header>
+<div class="logo"><a href="/">{{@blog.title}}</a></div>
+<div class="top">	
+  
+  <div class="menu">
+  	<ul>
+    	{{navigation}}
+    </ul>
+  </div> 
+  <div class="search_bar">
+        <button class="btn" type="button"><span class="ion-ios-search"></span></button>
+      <input type="text" class="search" placeholder="Search for...">
+  </div> 
+</div>
+</header>
+<div class="clear"></div>
+{{#post}}
+<div class="col-100">
+<article class="post-post">
+  <!--div class="auther col-80">
+  	<img src="{{author.image}}" class="avatar">
+    <div class="meta">
+      <div class="name"><a href="{{author.bio}}">{{author}}</a></div>
+      <div class="time">{{date format='YYYY-MM-DD'}}</div>
+    </div>
+  </div-->
+  <div class="clear"></div>
+  {{#if image}}<div class="post-image" style="background-image: url({{image}})">
+  <div class="mask">
+      <h1 class="title col-80">{{{title}}}</h1>
+  </div>
+  </div>
+  {{else}}
+  <h1 class="title1 col-80">{{{title}}}</h1>
+  {{/if}}
+    <div class="fly"></div>
+  <div class="content">
+		{{content}}
+  </div>
+  <div class="clear"></div>  
+  <footer class="post-footer">
+        	<div class="tags">
+			{{tags separator=""}}
+            </div>
+  </footer>
+</article>
+  <div class="clear"></div>
+<div class="comments">
+	{{> comments}}
+</div>  
+</div>
+{{/post}}
+
+
